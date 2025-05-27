@@ -47,15 +47,14 @@ Contamos con un equipo de profesionales especializados en derecho migratorio y m
 
 - Nombre completo y apellidos
 - NIE/Pasaporte
+- Fecha de caducidad
 - País de origen
 - Fecha de nacimiento
 - Dirección actual
-- Teléfono(s) de contacto
+- Teléfono
 - Email
-- Idioma preferido
-- Situación laboral actual
 - Fecha de entrada al país
-- Documentos de identidad vigentes y sus fechas de caducidad
+
 
 ### 📌 Organización de trámites por cliente
 
@@ -97,6 +96,8 @@ Sí, registrar:
 
 ---
 
+**Analizando los requisitos del cliente, podemos desarrollar lo siguiente:**
+
 ## Entidades y Atributos
 
 ### 🧩 Entidad: Usuario
@@ -106,7 +107,7 @@ Sí, registrar:
 | id_usuario (PK)  | INT                                  | Identificador único              |
 | nombre_usuario   | VARCHAR                              | Nombre de acceso al sistema      |
 | correo           | VARCHAR                              | Correo electrónico asociado      |
-| contraseña_hash  | VARCHAR                              | Contraseña cifrada               |
+| contraseña       | VARCHAR                              | Contraseña cifrada               |
 | rol              | ENUM('cliente', 'gestor', 'admin')   | Tipo de usuario                  |
 | fecha_creacion   | DATETIME                             | Fecha de registro                |
 | activo           | BOOLEAN                              | Cuenta activa o deshabilitada    |
@@ -118,18 +119,17 @@ Sí, registrar:
 | Atributo             | Tipo        |
 |----------------------|-------------|
 | id_cliente (PK)      | INT         |
+| id_usuario (FK)      | INT         |
 | nombre               | VARCHAR     |
 | apellidos            | VARCHAR     |
 | NIE_pasaporte        | VARCHAR     |
+| fecha_caducidad      | VARCHAR     |
 | pais_origen          | VARCHAR     |
 | fecha_nacimiento     | DATE        |
 | direccion            | VARCHAR     |
-| telefono1            | VARCHAR     |
-| telefono2 (opcional) | VARCHAR     |
+| telefono             | VARCHAR     |
 | email                | VARCHAR     |
-| idioma_preferido     | VARCHAR     |
-| situacion_laboral    | VARCHAR     |
-| fecha_entrada_pais   | DATE        |
+| fecha_entrada_Pais   | VARCHAR     |
 
 ---
 
@@ -160,7 +160,7 @@ Sí, registrar:
 | fecha_cita        | DATE                                 |
 | fecha_vencimiento | DATE                                 |
 | fecha_resolucion  | DATE                                 |
-| observaciones     | TEXT                                 |
+| observaciones     | VARCHAR(100)                         |
 
 ---
 
@@ -171,7 +171,7 @@ Sí, registrar:
 | id_alerta (PK)   | INT         |
 | id_tramite (FK)  | INT         |
 | tipo_alerta      | VARCHAR(100)|
-| descripcion      | TEXT        |
+| descripcion      | VARCHAR(100)|
 | fecha_alerta     | DATE        |
 | atendida         | BOOLEAN     |
 
@@ -198,6 +198,6 @@ Sí, registrar:
 | id_tramite (FK)        | INT         |
 | fecha_hora             | DATETIME    |
 | usuario_modifico (FK)  | INT         |
-| descripcion            | TEXT        |
+| descripcion            | VARCHAR(100)|
 | estado_anterior        | VARCHAR(50) |
 | estado_nuevo           | VARCHAR(50) |
