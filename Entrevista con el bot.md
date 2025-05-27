@@ -29,9 +29,9 @@ Contamos con un equipo de profesionales especializados en derecho migratorio y m
 
 ## Conversación con el Cliente
 
-**Asistente**: ¡Hola! Soy el dueño del negocio y estoy buscando desarrollar un sistema de base de datos que me ayude a gestionar mejor mi empresa. ¿Qué te gustaría saber sobre nuestras necesidades y operaciones?
+**Bot**: ¡Hola! Soy el dueño del negocio y estoy buscando desarrollar un sistema de base de datos que me ayude a gestionar mejor mi empresa. ¿Qué te gustaría saber sobre nuestras necesidades y operaciones?
 
-**Human:**
+**Usuario:**
 
 - ¿Qué datos básicos debería registrar de cada cliente?
 - ¿Cómo debería organizar la información de los diferentes trámites que tiene un mismo cliente?
