@@ -16,9 +16,7 @@ Este repositorio contiene un proyecto de diseño de base de datos para un client
   - [5. Implementación en MySQL](#5-implementación-en-mysql)  
   - [6. Pruebas y Validación](#6-pruebas-y-validación)  
 - [Estructura del Repositorio](#-estructura-del-repositorio)  
-- [Instalación y Uso](#-instalación-y-uso)  
-- [Contribuciones](#-contribuciones)  
-- [Licencia](#-licencia)
+
 
 ---
 
