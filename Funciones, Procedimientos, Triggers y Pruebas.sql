@@ -1,8 +1,6 @@
 -- FUNCIONES ALMACENADAS
 -- Función 1: Obtener la cantidad de trámites activos (pendientes o en proceso) de un cliente
-
 DELIMITER //
-
 CREATE FUNCTION contar_tramites_activos(cliente_id INT)
 RETURNS INT
 DETERMINISTIC
@@ -14,7 +12,6 @@ BEGIN
     RETURN total;
 END;
 //
-
 DELIMITER ;
 
 -- Prueba:
@@ -23,7 +20,6 @@ SELECT contar_tramites_activos(1) AS total_tramites_activos;
 
 
 -- Función 2: Obtener el nombre completo del gestor dado su id_gestor
-
 DELIMITER //
 
 CREATE FUNCTION nombre_gestor(id INT)
@@ -45,9 +41,7 @@ SELECT nombre_gestor(1) AS nombre_completo_gestor;
 
 
 -- PROCEDIMIENTOS ALMACENADOS
-
 -- Procedimiento 1: Actualizar el estado de un trámite
-
 DELIMITER //
 
 CREATE PROCEDURE actualizar_estado_tramite(
@@ -60,17 +54,13 @@ BEGIN
     WHERE id_tramite = p_id_tramite;
 END;
 //
-
 DELIMITER ;
 
 -- Prueba:
 -- Cambiar estado de un trámite con id_tramite = 1 a 'completado'
 CALL actualizar_estado_tramite(1, 'completado');
 
-
-
 -- Procedimiento 2: Insertar nueva alerta para un trámite
-
 DELIMITER //
 
 CREATE PROCEDURE insertar_alerta(
@@ -84,7 +74,6 @@ BEGIN
     VALUES (p_id_tramite, p_tipo_alerta, p_descripcion, p_fecha_alerta);
 END;
 //
-
 DELIMITER ;
 
 -- Prueba:
@@ -95,8 +84,6 @@ CALL insertar_alerta(1, 'Recordatorio', 'Revisar documentos necesarios', CURDATE
 
 -- TRIGGERS:
 -- Trigger BEFORE UPDATE: Antes de cambiar el estado del trámite, guarda un historial
-
-
 DELIMITER //
 
 CREATE TRIGGER before_tramite_update
@@ -110,7 +97,6 @@ BEGIN
     END IF;
 END;
 //
-
 DELIMITER ;
 
 
@@ -118,7 +104,7 @@ DELIMITER ;
 
 UPDATE tramite SET estado = 'en proceso' WHERE id_tramite = 1;
 
--- Comprobación:
+-- Verificacion:
 
 SELECT * FROM tramite WHERE id_tramite = 1;
 
@@ -147,7 +133,7 @@ INSERT INTO tramite (
 );
 
 
--- Comprobación:
+-- Verificacion:
 
 SELECT * FROM historial_cambios WHERE id_tramite = 1;
 SELECT * FROM alerta WHERE id_tramite = 1;

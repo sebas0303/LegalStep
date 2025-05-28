@@ -8,7 +8,7 @@ create table usuario (
     nombre_usuario varchar(50) unique not null,
     correo varchar(100) not null,
     contraseña varchar(255) not null,
-    rol enum('cliente', 'gestor', 'admin') not null,
+    rol enum('cliente', 'gestor', 'admin') not null,	
     fecha_creacion datetime default current_timestamp,
     activo boolean default true
 );
@@ -95,7 +95,6 @@ create table historial_cambios (
 
 
 INSERT INTO usuario (nombre_usuario, correo, contraseña, rol, fecha_creacion, activo) VALUES
-
 ('juan_perez', 'juan@example.com', 'clave123', 'cliente', '2025-05-01 10:00:00', true),
 ('maria_lopez', 'maria@example.com', 'clave456', 'cliente', '2025-05-02 11:15:00', true),
 ('ana_gomez', 'ana@example.com', 'clave789', 'cliente', '2025-05-03 09:30:00', true),
@@ -120,9 +119,8 @@ INSERT INTO usuario (nombre_usuario, correo, contraseña, rol, fecha_creacion, a
 
 
 
-INSERT INTO cliente (
-    id_usuario, nombre, apellidos, nie_pasaporte, fecha_caducidad, pais_origen,
-    fecha_nacimiento, direccion, telefono, email, fecha_entrada_pais) VALUES
+INSERT INTO cliente (id_usuario, nombre, apellidos, nie_pasaporte, fecha_caducidad, pais_origen,
+fecha_nacimiento, direccion, telefono, email, fecha_entrada_pais) VALUES
 (1, 'Carlos', 'Ramírez Soto', 'X1234567A', '2027-03-15', 'Perú', '1995-06-12',
 'Calle Mayor 12, Madrid', '611223344', 'carlos.ramirez@example.com', '2020-09-01'),
 (2, 'María', 'López Fernández', 'Y8765432B', '2026-12-20', 'Colombia', '1998-04-22',
